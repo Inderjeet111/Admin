@@ -2,8 +2,8 @@
   <!-- Sidebar  -->
   <nav id="sidebar">
       <div class="sidebar-header">
-          <h3>PORTAL</h3>
-          <strong>P</strong>
+          <h3>ADMIN</h3>
+          <strong>A</strong>
       </div>
 
       <ul class="list-unstyled components">
@@ -16,11 +16,11 @@
           <li>
               <a href="#">
                   <i class="fa fa-user"></i>
-                  profile
+                  Profile
               </a>
               <a href="#pageSubmenu">
-                  <i class="fas fa-copy"></i>
-                  SMS
+                  <i class="fas fa-user"></i>
+                  Users
               </a>
               <!-- <ul class="collapse list-unstyled" id="pageSubmenu">
                   <li>
@@ -43,7 +43,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
 
-              <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <button type="button" id="sidebarCollapse" class="btn btn-primary">
                   <i class="fas fa-align-left"></i>
               </button>
               <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,5 +65,17 @@
               </div>
           </div>
       </nav>
+
+      <div class="row">
+
+        <div class="col-6 p-5 shadow">
+          <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="'pie'">
+          
+        </canvas>
+      </div>
+    </div>
   </div>
 </div>
