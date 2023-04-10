@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { CommonUserService } from 'src/app/shared/services/common-user.service';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent {
+export class UsersListComponent implements OnInit {
 
-constructor(){
+  constructor(public user:CommonUserService){}
+  ngOnInit(): void {
+    console.log("sasf");
+    
+    this.getList();
+  }
+  getList(){
+    console.log("getlist");
+    
+    this.user.getUserList().subscribe(res=>{
 
-}
-ngOnInIt(){
-
-}
-
+      console.log(res,"list")
+    })
+ }
 }
