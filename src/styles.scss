@@ -4,6 +4,16 @@
 /*
     DEMO STYLE
 */
+
+.btn{
+  background-color: #21508a !important;
+  border: none !important;;
+}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #fafafa;
@@ -71,7 +81,7 @@ span {
 #sidebar.active {
   min-width: 80px;
   max-width: 100px;
-  text-align: left;
+  text-align: center;
 }
 
 #sidebar.active .sidebar-header h3,
@@ -114,7 +124,7 @@ span {
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
+  padding: 16px;
   background: #21508a;
 }
 
@@ -130,6 +140,7 @@ span {
 
 #sidebar ul li a {
   padding: 10px;
+  padding-left: 20px;
   font-size: 1.1em;
   display: block;
   text-decoration: none;
@@ -137,8 +148,8 @@ span {
 }
 
 #sidebar ul li a:hover {
-   background-color: #21508a;
-  }
+  background-color: #21508a;
+}
 
 #sidebar ul li a i {
   margin-right: 10px;
@@ -201,9 +212,17 @@ a.article {
 
 #content {
   width: 100%;
-  padding: 20px;
+  padding: 0;
   min-height: 100vh;
   transition: all 0.3s;
+}
+
+#sidebar .sidebar-header h3 {
+  margin: 0;
+}
+
+#sidebar.active .sidebar-header {
+  padding: 12px !important;
 }
 
 /* ---------------------------------------------------
@@ -258,3 +277,15 @@ a.article {
     display: none;
   }
 }
+
+#sidebar.active strong {
+  display: none;
+}
+
+#sidebar.active ul li a {
+  text-align: center;
+}
+
+// #sidebar h3{
+//   margin-top: 0.25em;
+// }

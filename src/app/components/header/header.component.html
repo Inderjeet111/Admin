@@ -3,80 +3,57 @@
 <div class="wrapper">
   <!-- Sidebar  -->
   <nav id="sidebar">
-      <div class="sidebar-header">
-          <h3>ADMIN</h3>
-          <strong>A</strong>
-      </div>
+    <div class="sidebar-header">
+      <h3>ADMIN</h3>
+      <strong>A</strong>
+    </div>
 
-      <ul class="list-unstyled components">
-          <li>
-              <a href="#">
-                  <i class="fas fa-home"></i>
-                  Home
-              </a>
-          </li>
-          <li>
-              <a href="#">
-                  <i class="fa fa-user"></i>
-                  Profile
-              </a>
-              <a href="#pageSubmenu">
-                  <i class="fas fa-user"></i>
-                  Users
-              </a>
-              <!-- <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li>
-                      <a href="#">Send Sms</a>
-                  </li>
-                  <li>
-                      <a href="#">Create Group</a>
-                  </li>
-                  <li>
-                      <a href="#">Create Single Contact</a>
-                  </li>
-              </ul> -->
-          </li>
-      </ul>
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#">
+          <i class="fas fa-home me-2"></i>
+          <strong>Home</strong>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-user me-2"></i>
+          <strong>Profile</strong>
+        </a>
+        <a routerLink="users">
+          <i class="fas fa-user me-2"></i>
+          <strong>Users</strong>
+        </a>
+      </li>
+    </ul>
   </nav>
 
   <!-- Page Content  -->
   <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fas fa-align-left"></i>
+        </button>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-              <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                  <i class="fas fa-align-left"></i>
-              </button>
-
-              <div >
-                  <ul class="nav navbar-nav ml-auto">
-                      <li class="nav-item">
-                        <label class="switch">
-                          <input (click)="switchLanguage()" type="checkbox" [checked]="isGerman">
-                           <span class="slider round"></span>
-                         </label>
-                      </li>
-                  
-                  </ul>
-              </div>
-          </div>
-      </nav>
-
-      <div class="row">
-
-        <div class="col-6 p-5 shadow">
-          <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="'pie'">
-          
-        </canvas>
+        <div>
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+              <span class="p-1">EN</span>
+              <label class="switch">
+                <input
+                  (click)="switchLanguage()"
+                  type="checkbox"
+                  [checked]="isGerman"
+                />
+                <span class="slider round"></span>
+              </label>
+              <span class="p-1">DE</span>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    
-     
-     <p>{{ 'home.title' | translate }}</p>
+    </nav>
+    <router-outlet></router-outlet>
   </div>
 </div>
-
