@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -9,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
 
-  constructor(private translate: TranslateService,){
+  constructor(private translate: TranslateService,private spinner: NgxSpinnerService){
 
   }
 
@@ -45,6 +46,7 @@ ngOnInit() {
 }
 
 switchLanguage() {
+  this.spinner.show();
   setTimeout(() => {
     //  spinner ends after 5 seconds 
     this.isGerman = !this.isGerman;
@@ -55,6 +57,7 @@ switchLanguage() {
       this.translate.use('en');
       localStorage.setItem('selectedLang','en')
     }
+    this.spinner.hide();
   }, 500);
 
 }
