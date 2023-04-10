@@ -4,6 +4,16 @@
 /*
     DEMO STYLE
 */
+
+.btn{
+  background-color: #21508a !important;
+  border: none !important;;
+}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #fafafa;

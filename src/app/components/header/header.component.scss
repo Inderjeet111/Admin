@@ -41,11 +41,11 @@ p {
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #21508a;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #21508a;
   }
   
   input:checked + .slider:before {
@@ -61,4 +61,8 @@ p {
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  #content nav{
+    margin-bottom: 20px;
   }
