@@ -9,6 +9,6 @@ export class CommonUserService {
   constructor(private http: HttpClient) { }
 
   getUserList(){
-    return this.http.get(ApiRoutes.usersList);
+    return this.http.get<any>(ApiRoutes.usersList);
   }
 }

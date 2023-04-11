@@ -8,6 +8,7 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
 })
 export class UsersListComponent implements OnInit {
 
+  userList:any=[]
   constructor(public user:CommonUserService){}
   ngOnInit(): void {
     console.log("sasf");
@@ -15,11 +16,11 @@ export class UsersListComponent implements OnInit {
     this.getList();
   }
   getList(){
-    console.log("getlist");
+   
     
     this.user.getUserList().subscribe(res=>{
-
-      console.log(res,"list")
+      this.userList=res.users;
+      console.log("getlist",this.userList);
     })
  }
 }
