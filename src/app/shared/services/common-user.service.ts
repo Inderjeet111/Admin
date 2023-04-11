@@ -11,4 +11,8 @@ export class CommonUserService {
   getUserList(){
     return this.http.get<any>(ApiRoutes.usersList);
   }
+  
+  addUser(userData:any){
+    return this.http.post<any>(ApiRoutes.insertUser,userData);
+  }
 }
