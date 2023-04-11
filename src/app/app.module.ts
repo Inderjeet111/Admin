@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule,ROUTES } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json" );
@@ -44,7 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule, ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

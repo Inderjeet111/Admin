@@ -15,4 +15,8 @@ export class CommonUserService {
   addUser(userData:any){
     return this.http.post<any>(ApiRoutes.insertUser,userData);
   }
+
+ deleteUser(userId:any) {
+    return  this.http.delete(ApiRoutes.deleteUser+'/'+`${userId}`)
+  }
 }

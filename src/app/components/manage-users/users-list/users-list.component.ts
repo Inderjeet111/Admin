@@ -1,4 +1,6 @@
 import { Component,OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
 export class UsersListComponent implements OnInit {
 
   userList:any=[]
-  constructor(public user:CommonUserService){}
+  constructor(public user:CommonUserService,private spinner: NgxSpinnerService,private toastr: ToastrService){}
   ngOnInit(): void {
     console.log("sasf");
     
@@ -23,4 +25,22 @@ export class UsersListComponent implements OnInit {
       console.log("getlist",this.userList);
     })
  }
+
+ deleteUser(id:number){
+  this.spinner.show()
+  this.user.deleteUser(id).subscribe(res=>{
+    this.toastr.error('Successfully!','User Deleted', {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
+    console.log(res);
+    this.getList();
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 500);
+  })
 }
+}
+      

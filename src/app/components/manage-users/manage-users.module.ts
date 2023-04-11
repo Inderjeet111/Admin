@@ -5,6 +5,7 @@ import { ManageUsersRoutingModule } from './manage-users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ManageUsersRoutingModule
+    ManageUsersRoutingModule,ToastrModule.forRoot()
+
   ]
 })
 export class ManageUsersModule { }
