@@ -9,18 +9,18 @@
     </div>
 
     <ul class="list-unstyled components">
-      <li>
-        <a href="#">
+      <li >
+        <a routerLink="" (click)="selectItem('Item 1')" [class.selected]="selectedItem === 'Item 1'">
           <i class="fas fa-home me-2"></i>
           <strong>Home</strong>
         </a>
       </li>
-      <li>
-        <a href="#">
+      <li >
+        <!-- <a href="#">
           <i class="fa fa-user me-2"></i>
           <strong>Profile</strong>
-        </a>
-        <a routerLink="users">
+        </a> -->
+        <a routerLink="users" (click)="selectItem('Item 2')" [class.selected]="selectedItem === 'Item 2'">
           <i class="fas fa-user me-2"></i>
           <strong>Users</strong>
         </a>

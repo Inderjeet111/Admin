@@ -15,7 +15,7 @@ export class HeaderComponent {
   }
 
   isGerman: boolean=false;
- 
+  selectedItem: string = 'Item 1'; 
  
 ngOnInit() {
   if(localStorage.getItem('selectedLang')==='de'){
@@ -44,6 +44,14 @@ switchLanguage() {
     this.spinner.hide();
   }, 500);
 
+}
+
+selectItem(item: string): void {
+  this.selectedItem = item;
+  this.spinner.show();
+  setTimeout(() => {
+    this.spinner.hide();
+  }, 500);
 }
 
 }
