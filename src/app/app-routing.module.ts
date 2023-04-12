@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './feature/auth/components/login/login.component';
 
 const routes: Routes = [
+  
   {
     path: '',
-    component: HomeComponent
+    loadChildren: ()=> import('./feature/auth/auth.module').then(m=> m.AuthModule)
   },
-
   {
-    path: 'users',
-    loadChildren: ()=> import('./components/manage-users/manage-users.module').then(m=> m.ManageUsersModule)
-  }
+    path: 'panel',
+    loadChildren: ()=> import('./feature/panel/panel.module').then(m=> m.PanelModule)
+  },
 ];
 
 @NgModule({
