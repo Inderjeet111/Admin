@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PanelMainComponent } from './components/panel-main/panel-main.component';
+import { HomeComponent } from './modules/manage-users/components/home/home.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
             (m) => m.ManageUsersModule
           ),
       },
+      
+  {
+    path:'',
+    component:HomeComponent
+  }
     ]
   }
   

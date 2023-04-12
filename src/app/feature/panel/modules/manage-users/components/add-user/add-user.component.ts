@@ -56,7 +56,7 @@ addUser(){
       progressAnimation: 'decreasing',
       positionClass: 'toast-top-right'
     });
-    this.router.navigate(['users'])
+    this.router.navigate(['panel/users'])
   })
   
   
@@ -64,6 +64,6 @@ addUser(){
 
 
 cancel(){
-  this.router.navigate(['users'])
+  this.router.navigate(['panel/users'])
 }
 }
