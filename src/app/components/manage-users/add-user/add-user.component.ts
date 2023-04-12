@@ -61,4 +61,9 @@ addUser(){
   
   
 }
+
+
+cancel(){
+  this.router.navigate(['users'])
+}
 }

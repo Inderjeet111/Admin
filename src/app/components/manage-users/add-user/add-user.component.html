@@ -1,25 +1,19 @@
-
-
-
 <div class="container-fluid">
-<h2>Add User</h2>
-    <form [formGroup]="form">
+    <div class="cursor"><a routerLink="/users"><i class="fas fa-arrow-left me-2"></i>back</a>
+    </div>
 
-        <div class="mb-3">
+    <div class="col-lg-6 pb-5 mt-3  shadow ms-auto me-auto">
+        <form>
+            <h3 class="text-center">Add User</h3>
+            <!-- <hr> -->
             <label class="form-label">First Name</label>
-            <input type="name" class="form-control" formControlName="firstName">
-    
-        </div>
-        <div class="mb-3">
-            <label  class="form-label">Last Name</label>
-            <input type="name" class="form-control" formControlName="lastName" >
-        
-        </div>
-        <div class="mb-3">
+            <input type="text" class="form-control mb-2" placeholder="" formControlName="firstName">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control mb-2" placeholder="" formControlName="lastName">
             <label class="form-label">E-Mail</label>
-            <input type="email" class="form-control" formControlName="email" >
-        </div>
-  
-    <button type="submit" class="btn btn-primary"[disabled]="form.invalid" (click)="addUser()">Submit</button>
-  </form>
-        </div>
+            <input type="email" class="form-control mb-4" formControlName="email">
+            <button type="submit" class="btn btn-primary me-2" [disabled]="form.invalid" (click)="addUser()">Submit</button>
+            <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+        </form>
+    </div>
+</div>

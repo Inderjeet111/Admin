@@ -1,10 +1,10 @@
 <div class="container-fluid">
-    <div class="d-flex mb-2">
-        <h2>User List</h2>
-        <button class="btn btn-primary ml-auto" routerLink="addUser">Add User</button>
-    </div>
-    <table class="table">
-        <thead class="thead" style="background-color: #21508a; color: #fff;">
+  <div class="d-flex mb-2">
+    <h2>User List</h2>
+    <button class="btn btn-primary ml-auto" routerLink="addUser">Add User</button>
+  </div>
+  <table class="table">
+    <thead class="thead" style="background-color: #21508a; color: #fff;">
       <tr>
         <th scope="col">#</th>
         <th scope="col">First</th>
@@ -14,20 +14,17 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of userList,let i=index">
+      <tr *ngFor="let user of userList,let i=index">
         <th scope="row">{{i+1}}</th>
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>
-         <a ><i class="fas fa-eye me-2"></i></a> 
-         <a href=""><i class="fas fa-edit me-2"></i></a> 
-         <a (click)="deleteUser(user.id)"><i class="fas fa-trash-alt me-2"></i></a>
+          <a><i class="fas fa-eye me-2"></i></a>
+          <a href=""><i class="fas fa-edit me-2"></i></a>
+          <a (click)="deleteUser(user.id)"><i class="fas fa-trash-alt me-2"></i></a>
         </td>
       </tr>
-</tbody>
-</table>
+    </tbody>
+  </table>
 </div>
-
-
-
