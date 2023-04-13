@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { CommonUserService } from 'src/app/shared/services/common-user.service';
 
 @Component({
   selector: 'app-panel-main',
@@ -14,13 +15,14 @@ export class PanelMainComponent {
     private translate: TranslateService,
     private spinner: NgxSpinnerService,
     private router:Router,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+   ) {}
 
   isGerman: boolean = false;
   selectedItem: string = 'Item 1';
-
+  
   ngOnInit() {
+    
     if (localStorage.getItem('selectedLang') === 'de') {
       this.isGerman = false;
       this.translate.use('de');

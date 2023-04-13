@@ -19,4 +19,10 @@ export class CommonUserService {
  deleteUser(userId:any) {
     return  this.http.delete(ApiRoutes.deleteUser+'/'+`${userId}`)
   }
+
+  // Home
+
+  getHomeData(){
+    return this.http.get<any>(ApiRoutes.home)
+  }
 }

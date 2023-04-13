@@ -14,10 +14,10 @@ export class AuthAdminGuard implements CanActivate {
       const token = localStorage.getItem('token');
       if(token) {
         return true;
-      } else {
-        this.router.navigate(['/login']);
-        return false;
-      }
+      } 
+    
+    return  this.router.navigate(['/login']);
+      
   }
   
 }

@@ -7,6 +7,8 @@ export class ApiRoutes {
 
     public static get deleteUser(): string { return this.apiBaseUrl + 'userDeleted'; }
 
+    public static get home(): string { return this.apiBaseUrl + 'home'; }
+
     // Auth 
 
     public static get adminLogin(): string { return this.apiBaseUrl + 'admin/login'; }

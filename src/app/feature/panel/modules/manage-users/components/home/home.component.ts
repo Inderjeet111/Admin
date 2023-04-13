@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonUserService } from 'src/app/shared/services/common-user.service';
 
 @Component({
   selector: 'app-home',
@@ -23,5 +24,20 @@ export class HomeComponent {
         ]
     }
 ];
+constructor(public user:CommonUserService){}
 
+allUsers:any;
+allAdmins:any;
+
+ngOnInit(){
+  this.user.getHomeData().subscribe((res:any)=>{
+    if(res){
+
+      this.allUsers= res.users
+      this.allAdmins= res.admins
+      console.log(res);
+      
+    }
+  })
+}
 }
