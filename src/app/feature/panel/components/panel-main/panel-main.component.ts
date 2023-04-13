@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -8,13 +9,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./panel-main.component.scss'],
 })
 export class PanelMainComponent {
-
-  @Input() isExpanded: boolean = false;
-  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(
     private translate: TranslateService,
-    private spinner: NgxSpinnerService
-  ) {}
+    private spinner: NgxSpinnerService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   isGerman: boolean = false;
   selectedItem: string = 'Item 1';
@@ -29,32 +29,40 @@ export class PanelMainComponent {
 
     // this.switchLanguage();
     this.isGerman = this.translate.currentLang === 'de' ? true : false;
-  }
 
-  switchLanguage() {
-    this.spinner.show();
-    setTimeout(() => {
-      //  spinner ends after 5 seconds
-      this.isGerman = !this.isGerman;
-      if (this.isGerman) {
-        this.translate.use('de');
-        localStorage.setItem('selectedLang', 'de');
-      } else {
-        this.translate.use('en');
-        localStorage.setItem('selectedLang', 'en');
-      }
+
+    const currentUrl = this.router.url;
+    console.log('Current URL:', currentUrl);
+    if (currentUrl == '/panel/users') {
+      this.selectedItem = 'Item 2'
+    }
+    else if(currentUrl == '/panel'){
+      this.selectedItem = 'Item 1'
+    }
+  }
+    switchLanguage() {
+      this.spinner.show();
+      setTimeout(() => {
+        //  spinner ends after 5 seconds
+        this.isGerman = !this.isGerman;
+        if (this.isGerman) {
+          this.translate.use('de');
+          localStorage.setItem('selectedLang', 'de');
+        } else {
+          this.translate.use('en');
+          localStorage.setItem('selectedLang', 'en');
+        }
+        this.spinner.hide();
+      }, 500);
+    }
+
+    selectItem(item: string): void {
+      this.selectedItem = item;
+      this.spinner.show();
+      setTimeout(() => {
       this.spinner.hide();
     }, 500);
   }
 
-  selectItem(item: string): void {
-    this.selectedItem = item;
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
-  }
 
-
-  handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }
