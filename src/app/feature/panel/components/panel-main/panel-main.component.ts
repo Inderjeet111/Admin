@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-panel-main',
@@ -8,12 +10,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./panel-main.component.scss'],
 })
 export class PanelMainComponent {
-
-  @Input() isExpanded: boolean = false;
-  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(
     private translate: TranslateService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router:Router,
+    private toastr: ToastrService
   ) {}
 
   isGerman: boolean = false;
@@ -49,6 +50,16 @@ export class PanelMainComponent {
 
   selectItem(item: string): void {
     this.selectedItem = item;
+    if(this.selectedItem=='Item 3'){
+      localStorage.removeItem('token');
+      this.toastr.error('Successfully!','Logout', {
+        timeOut: 3000,
+        progressBar: true,
+        progressAnimation: 'decreasing',
+        positionClass: 'toast-top-right'
+      });
+      this.router.navigate(['/login'])
+    }
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
@@ -56,5 +67,4 @@ export class PanelMainComponent {
   }
 
 
-  handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }
