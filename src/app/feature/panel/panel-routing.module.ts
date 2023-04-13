@@ -19,6 +19,11 @@ const routes: Routes = [
             (m) => m.ManageUsersModule
           ),
       },
+      
+  {
+    path:'',
+    component:HomeComponent
+  }
     ]
   }
   

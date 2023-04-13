@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { PanelRoutingModule } from './panel-routing.module';
 import { PanelMainComponent } from './components/panel-main/panel-main.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,7 +19,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     PanelRoutingModule,
     HttpClientModule,
-    HeaderComponent,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -8,6 +8,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./panel-main.component.scss'],
 })
 export class PanelMainComponent {
+
+  @Input() isExpanded: boolean = false;
+  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(
     private translate: TranslateService,
     private spinner: NgxSpinnerService
@@ -51,4 +54,7 @@ export class PanelMainComponent {
       this.spinner.hide();
     }, 500);
   }
+
+
+  handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }

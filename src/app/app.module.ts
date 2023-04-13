@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+
 import { ChartsModule } from 'ng2-charts';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -25,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
+
     HomeComponent,
     LoginComponent
   ],
