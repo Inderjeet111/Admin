@@ -20,5 +20,12 @@ confirmPassword:new FormControl('')
   
   ngOnInIt(){
 
+    
+    
+  }
+  
+  submit(){
+    console.log(this.signupForm.value);
+
   }
 }

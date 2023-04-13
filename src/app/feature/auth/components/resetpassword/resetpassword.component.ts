@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-resetpassword',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class ResetpasswordComponent {
 
+  resetForm:FormGroup;
+constructor(){
+  this.resetForm=new FormGroup({
+    oldpassword:new FormControl(''),
+    password:new FormControl(''),
+    confirmPassword:new FormControl('')
+  })
+}
+
+  ngOnInIt(){
+
+  }
+  resetpassword(){
+    console.log(this.resetForm.value);
+    
+    
+  }
 }
