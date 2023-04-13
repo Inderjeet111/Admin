@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-panel-main',
@@ -8,13 +10,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./panel-main.component.scss'],
 })
 export class PanelMainComponent {
-
-  @Input() isExpanded: boolean = false;
-  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(
     private translate: TranslateService,
-    private spinner: NgxSpinnerService
-  ) {}
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   isGerman: boolean = false;
   selectedItem: string = 'Item 1';
@@ -29,6 +30,35 @@ export class PanelMainComponent {
 
     // this.switchLanguage();
     this.isGerman = this.translate.currentLang === 'de' ? true : false;
+
+
+    const currentPath = this.router.url;
+    console.log('Current Router Path:', currentPath);
+    if (currentPath == '/panel/users') {
+      this.selectedItem = 'Item 2'
+    }
+    else if (currentPath == '/panel') {
+      this.selectedItem = 'Item 1'
+    }
+
+  }
+  selectItem(item: string): void {
+    this.selectedItem = item;
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
+
+  }
+  logout(){
+    localStorage.removeItem('token');
+    this.toastr.error('Successfully!', 'Logout', {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
+    this.router.navigate(['/login'])
   }
 
   switchLanguage() {
@@ -46,15 +76,4 @@ export class PanelMainComponent {
       this.spinner.hide();
     }, 500);
   }
-
-  selectItem(item: string): void {
-    this.selectedItem = item;
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
-  }
-
-
-  handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }
