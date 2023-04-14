@@ -28,7 +28,11 @@ export class UsersListComponent implements OnInit {
  getSearch(search: string, event: Event) {
   event.preventDefault();
   console.log(search);
+  this.spinner.show();
   this.getList(search);
+  setTimeout(() => {
+    this.spinner.hide()
+  }, 500);
 }
  deleteUser(id:number){
   this.spinner.show()
