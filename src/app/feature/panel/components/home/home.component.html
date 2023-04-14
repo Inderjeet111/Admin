@@ -14,9 +14,22 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+
+      <div class="col-5 p-3 me-2 shadow card">
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [colors]="pieChartColors" [chartType]="'pie'">
+        </canvas>
+      </div>
+
+      <div class="col-5 p-3 shadow card">
+        <div style="display: block;">
+          <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"></canvas>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-6 p-3 shadow card">
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [colors]="pieChartColors" [chartType]="'pie'">
-    </canvas>
-  </div>
+
 </div>
