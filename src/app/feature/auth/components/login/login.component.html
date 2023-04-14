@@ -7,7 +7,8 @@
             <input class="form-control mb-2" type="text" formControlName="email">
             <label>Password</label>
             <input class="form-control mb-2" type="password" formControlName="password">
-            <div class="float-end my-3 fs-6">Forgot Passsword</div>
+            <div class="">Dont have an account? <a routerLink="/signup">Signup</a></div>
+        <div class="float-end my-3 fs-6"><a routerLink="/forgotpassword">  Forgot Passsword</a></div>
             <button class="btn btn-primary mb-2 w-100" (click)="loginAdmin()">Login</button>
         </form>
     </div>
