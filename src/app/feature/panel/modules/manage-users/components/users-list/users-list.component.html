@@ -16,8 +16,8 @@
     <thead class="thead" style="background-color: #21508a; color: #fff;">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
         <th scope="col">E-Mail</th>
         <th scope="col">Action</th>
       </tr>
@@ -29,8 +29,8 @@
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>
-          <a><i class="fas fa-eye me-2 text-success"></i></a>
-          <a><i class="fas fa-edit me-2 text-dark"></i></a>
+          <a><i class="fas fa-eye me-2 text-dark"></i></a>
+          <a><i class="fas fa-edit me-2 text-secondary"></i></a>
           <a (click)="deleteUser(user.id)"><i class="fas fa-trash-alt me-2 text-danger"></i></a>
         </td>
       </tr>

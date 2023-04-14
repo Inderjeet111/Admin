@@ -1,16 +1,17 @@
 <div class="center-v-h">
-    <div class="col-lg-4 p-5 shadow ms-auto me-auto ">
+    <div class="col-lg-4 p-5 shadow bg-white">
+        <div title="Back" class="cursor"><a routerLink="/login"><i class="fas fa-arrow-left me-2"></i></a>
+        </div>
         <form [formGroup]="signupForm">
-        <h3 class="text-center">Signup</h3>
-        <hr>
+        <h3 class="text-center mb-3">Signup</h3>
         <label>Name</label>
-        <input class="form-control mb-2" formControlName="name" type="text">
+        <input class="form-control mb-3" formControlName="name" type="text">
         <label>E-mail</label>
-        <input class="form-control mb-2" formControlName="email" type="email">
+        <input class="form-control mb-3" formControlName="email" type="email">
         <label>Password</label>
-        <input class="form-control mb-2" formControlName="password" type="password">
+        <input class="form-control mb-3" formControlName="password" type="password">
         <label> Confirm Password</label>
-        <input class="form-control mb-2" formControlName="confirmPassword" type="password">
+        <input class="form-control mb-3" formControlName="confirmPassword" type="password">
         <!-- <div class="float-end my-3 fs-6">Forgot Passsword</div> -->
         <button class="btn btn-primary mb-2 w-100" (click)="submit()">Signup</button>
     </form>

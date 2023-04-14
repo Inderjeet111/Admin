@@ -15,11 +15,33 @@ input:focus{
   cursor: pointer;
 }
 
+.cursor a{
+  text-decoration: none;
+  color: #000;
+}
+.cursor a:hover{
+  text-decoration: none;
+  color: #000;
+}
+
 .btn:focus,.btn:active {
   outline: none !important;
   box-shadow: none;
 }
 
+
+.center-v-h{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #edf0f3;
+}
 
 
 
@@ -302,15 +324,3 @@ a.article {
 //   margin-top: 0.25em;
 // }
 
-
-.center-v-h{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
