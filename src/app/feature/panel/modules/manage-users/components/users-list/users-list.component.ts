@@ -17,16 +17,23 @@ export class UsersListComponent implements OnInit {
     
     this.getList();
   }
-  getList(){
-   
+
+  getList(search: string = ''){
     console.log('hiiii');
-    
-    this.user.getUserList().subscribe(res=>{
+    this.user.getUserList(search).subscribe(res=>{
       this.userList=res.users;
       console.log("getlist",this.userList);
     })
  }
-
+ getSearch(search: string, event: Event) {
+  event.preventDefault();
+  console.log(search);
+  this.spinner.show();
+  this.getList(search);
+  setTimeout(() => {
+    this.spinner.hide()
+  }, 500);
+}
  deleteUser(id:number){
   this.spinner.show()
   this.user.deleteUser(id).subscribe(res=>{

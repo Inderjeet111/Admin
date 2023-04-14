@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthServiceService } from '../../auth-service/auth-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SignupComponent {
 signupForm:FormGroup;
-  constructor(){
+  constructor(public authAdmin:AuthServiceService,private toastr: ToastrService){
     this.signupForm=new FormGroup({
 name:new FormControl(''),
 email:new FormControl(''),
@@ -26,6 +28,20 @@ confirmPassword:new FormControl('')
   
   submit(){
     console.log(this.signupForm.value);
-
+    let data = {...this.signupForm.value}
+    delete data.confirmPassword
+    console.log(data,"after delete");
+    this.authAdmin.signUp(this.signupForm.value).subscribe((res:any)=>{
+      console.log(res)
+      if(res.status==300){
+        this.toastr.error('Failed',res.message, {
+          timeOut: 3000,
+          progressBar: true,
+          progressAnimation: 'decreasing',
+          positionClass: 'toast-top-right'
+        });
+        return
+      }
+    })
   }
 }

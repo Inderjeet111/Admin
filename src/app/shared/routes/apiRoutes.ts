@@ -1,6 +1,6 @@
 export class ApiRoutes {
 
-    public static apiBaseUrl: string = "http://localhost:6400/";
+    public static apiBaseUrl: string = "http://localhost:5400/";
     public static get usersList(): string { return this.apiBaseUrl + 'users'; };
 
     public static get insertUser(): string { return this.apiBaseUrl + 'addUser'; }
@@ -13,4 +13,5 @@ export class ApiRoutes {
 
     public static get adminLogin(): string { return this.apiBaseUrl + 'admin/login'; }
 
+    public static get adminSignup(): string { return this.apiBaseUrl + 'admin/insert'; }
 }
