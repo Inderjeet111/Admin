@@ -1,18 +1,23 @@
 <div class="container-fluid">
-    <div class="cursor"><a routerLink="/panel/users"><i class="fas fa-arrow-left me-2"></i>back</a>
-    </div>
-
-    <div class="col-lg-6 mt-3 p-5 shadow ms-auto me-auto">
+        <div class="cursor "><a routerLink="/panel/users"><i class="fas fa-arrow-left me-2"></i>back</a>
+        </div>
+    <div class="mt-4">
         <form [formGroup]="form">
-            <h3 class="text-center">Add User</h3>
-            <!-- <hr> -->
-            <label class="form-label">First Name</label>
-            <input type="text" class="form-control mb-2" placeholder="" formControlName="firstName">
-            <label class="form-label">Last Name</label>
-            <input type="text" class="form-control mb-2" placeholder="" formControlName="lastName">
-            <label class="form-label">E-Mail</label>
-            <input type="email" class="form-control mb-4" formControlName="email">
-            <button type="submit" class="btn btn-primary me-2" (click)="addUser()">Submit</button>
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control mb-2" placeholder="" formControlName="firstName">
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control mb-2" placeholder="" formControlName="lastName">
+                </div>
+                <div class="col-4">
+                    <label class="form-label">E-Mail</label>
+                    <input type="email" class="form-control mb-2" formControlName="email">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary me-1" (click)="addUser()">Submit</button>
             <button class="btn btn-primary" (click)="cancel()">Cancel</button>
         </form>
     </div>
