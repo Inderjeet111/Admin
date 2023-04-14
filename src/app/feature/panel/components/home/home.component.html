@@ -1,15 +1,22 @@
 <div class="container-fluid">
-  <div class="col-6 p-3 shadow">
-    <canvas
-      baseChart
-      [data]="pieChartData"
-      [labels]="pieChartLabels"
-      [chartType]="'pie'"
-    >
-    </canvas>
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-md-6 card shadow">
+        <div class="bg-light p-3 m-2">
+          <h1>{{allAdmins.length}}</h1>
+          <p>Total Admins</p>
+        </div>
+      </div>
+      <div class="col-md-6 card shadow">
+        <div class="bg-light p-3 m-2">
+          <h1>{{allUsers.length}}</h1>
+          <p>Total Users</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card col-4 p-5">
-    <h4>50</h4>
-    <h4>Total Users</h4>
+  <div class="col-6 p-3 shadow card">
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [colors]="pieChartColors" [chartType]="'pie'">
+    </canvas>
   </div>
 </div>

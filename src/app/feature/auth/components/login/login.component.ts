@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
   constructor(public fb:FormBuilder,public authAdmin:AuthServiceService,public router:Router,private toastr: ToastrService){
     this.form=this.fb.group({
       email:['inder@gmail.com',[Validators.required]],
-      password:['inder12',[Validators.required]]
+      password:['inder@12',[Validators.required]]
     })
   }
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit{
     let ob= {ob2:{name:'ayush',age:34}}
     console.log(ob.ob2);
     this.authAdmin.login(this.form.value).subscribe((res:any)=>{
+      console.log(res,'dasds');
+      
       if(res.user){
         this.toastr.success(res.message,'',{
           timeOut: 3000,
@@ -45,8 +47,8 @@ export class LoginComponent implements OnInit{
 
       }else{
         if(res){
-          console.log(res.message);
-          this.toastr.error(res.message,'',{
+          console.log(res.body.message,'dasdsa');
+          this.toastr.error(res.body.message,'',{
             timeOut: 3000,
             progressBar: true,
             progressAnimation: 'decreasing',

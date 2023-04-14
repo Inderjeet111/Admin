@@ -6,39 +6,39 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
-  public pieChartLabels = [ 'Active Users', 'Inactive Users','Rejected Users'];
-  public pieChartData = [5, 3,2];
+  public pieChartLabels = ['Total Users', 'Total Admins'];
+  public pieChartData: any[] = [];
   public pieChartColors = [
     {
-        backgroundColor: [
-            '#645CBB',
-            '#A084DC',
-            '#BFACE2'
-        ],
-        hoverBackgroundColor:[
-            '#645CBB',
-            '#A084DC',
-            '#BFACE2'
-        ]
+      backgroundColor: [
+        '#21508a',
+        '#4e6d93'
+      ],
+      hoverBackgroundColor: [
+        '#21508a',
+        '#4e6d93',
+      ]
     }
-];
-constructor(public user:CommonUserService){}
+  ];
+  constructor(public user: CommonUserService) { }
 
-allUsers:any;
-allAdmins:any;
+  allUsers: any;
+  userCount: any;
+  allAdmins: any;
+  adminCount: any;
 
-ngOnInit(): void{
-  
-  this.user.getHomeData().subscribe((res:any)=>{
-    if(res){
+  ngOnInit(): void {
 
-      this.allUsers= res.users
-      this.allAdmins= res.admins
-      console.log(res);
-      
-    }
-  })
-}
+    this.user.getHomeData().subscribe((res: any) => {
+      if (res) {
+        this.allUsers = res.users
+        this.userCount = this.allUsers.length;
+        this.allAdmins = res.admins
+        this.adminCount = this.allAdmins.length;
+        this.pieChartData.push(this.userCount, this.adminCount)
+      }
+    })
+  }
 }
