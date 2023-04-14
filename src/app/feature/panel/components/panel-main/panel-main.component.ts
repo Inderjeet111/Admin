@@ -36,10 +36,10 @@ export class PanelMainComponent {
 
     const currentPath = this.router.url;
     console.log('Current Router Path:', currentPath);
-    if (currentPath == '/panel/users') {
+    if (currentPath == '/panel/users' || '/panel/users/addUser') {
       this.selectedItem = 'Item 2'
     }
-    else if (currentPath == '/panel') {
+    if (currentPath == '/panel') {
       this.selectedItem = 'Item 1'
     }
 
