@@ -13,4 +13,5 @@ export class ApiRoutes {
 
     public static get adminLogin(): string { return this.apiBaseUrl + 'admin/login'; }
 
+    public static get adminSignup(): string { return this.apiBaseUrl + 'admin/insert'; }
 }

@@ -12,4 +12,8 @@ export class AuthServiceService {
   login(data:any){
     return this.http.post(ApiRoutes.adminLogin,data)
   }
+
+  signUp(data:any){
+    return this.http.post(ApiRoutes.adminSignup,data)
+  }
 }
