@@ -59,7 +59,14 @@ addUser(){
       });
       return
     }
+    this.toastr.success(' Successfully','User Added', {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
     this.router.navigate(['panel/users'])
+    
   })
   
   
