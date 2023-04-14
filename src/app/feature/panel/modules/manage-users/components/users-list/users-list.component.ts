@@ -19,6 +19,7 @@ export class UsersListComponent implements OnInit {
   }
   getList(){
    
+    console.log('hiiii');
     
     this.user.getUserList().subscribe(res=>{
       this.userList=res.users;

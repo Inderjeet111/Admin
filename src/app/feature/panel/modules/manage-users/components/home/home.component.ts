@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   public pieChartLabels = [ 'Active Users', 'Inactive Users','Rejected Users'];
   public pieChartData = [5, 3,2];
@@ -29,7 +29,9 @@ constructor(public user:CommonUserService){}
 allUsers:any;
 allAdmins:any;
 
-ngOnInit(){
+ngOnInit(): void{
+  console.log('hii');
+  
   this.user.getHomeData().subscribe((res:any)=>{
     if(res){
 

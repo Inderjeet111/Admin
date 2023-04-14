@@ -45,17 +45,20 @@ ngOnInIt(){
 
 addUser(){
  this.spinner.show()
-  this.user.addUser(this.form.value).subscribe(res=>{
+  this.user.addUser(this.form.value).subscribe((res:any)=>{
     console.log(res);
     setTimeout(() => {
       this.spinner.hide();
     }, 500);
-    this.toastr.success('Successfully!','User Added', {
-      timeOut: 3000,
-      progressBar: true,
-      progressAnimation: 'decreasing',
-      positionClass: 'toast-top-right'
-    });
+    if(res.status==300){
+      this.toastr.error('Failed',res.message, {
+        timeOut: 3000,
+        progressBar: true,
+        progressAnimation: 'decreasing',
+        positionClass: 'toast-top-right'
+      });
+      return
+    }
     this.router.navigate(['panel/users'])
   })
   

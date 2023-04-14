@@ -14,9 +14,9 @@ export class PanelMainComponent {
   constructor(
     private translate: TranslateService,
     private spinner: NgxSpinnerService,
-    private router:Router,
-    private toastr: ToastrService,
-   ) {}
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   isGerman: boolean = false;
   selectedItem: string = 'Item 1';
@@ -32,6 +32,35 @@ export class PanelMainComponent {
 
     // this.switchLanguage();
     this.isGerman = this.translate.currentLang === 'de' ? true : false;
+
+
+    const currentPath = this.router.url;
+    console.log('Current Router Path:', currentPath);
+    if (currentPath == '/panel/users') {
+      this.selectedItem = 'Item 2'
+    }
+    else if (currentPath == '/panel') {
+      this.selectedItem = 'Item 1'
+    }
+
+  }
+  selectItem(item: string): void {
+    this.selectedItem = item;
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
+
+  }
+  logout(){
+    localStorage.removeItem('token');
+    this.toastr.error('Successfully!', 'Logout', {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
+    this.router.navigate(['/login'])
   }
 
   switchLanguage() {
@@ -49,24 +78,4 @@ export class PanelMainComponent {
       this.spinner.hide();
     }, 500);
   }
-
-  selectItem(item: string): void {
-    this.selectedItem = item;
-    if(this.selectedItem=='Item 3'){
-      localStorage.removeItem('token');
-      this.toastr.error('Successfully!','Logout', {
-        timeOut: 3000,
-        progressBar: true,
-        progressAnimation: 'decreasing',
-        positionClass: 'toast-top-right'
-      });
-      this.router.navigate(['/login'])
-    }
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
-  }
-
-
 }
