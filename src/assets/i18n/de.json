@@ -1,6 +1,13 @@
 {
-    "home": {
-      "title": "Willkommen in meiner App!"
-    }
+  "home": {
+    "admin": "Verwaltung",
+    "home":"Startseite",
+    "users":"Benutzer",
+    "logout":"Abmeldung",
+    "totalAdmins":"Admins gesamt",
+    "totalUsers":"Benutzer insgesamt",
+    "addUser":"Benutzer hinzufügen",
+    "search":"Suche",
+    "userList":"Benutzerliste"
   }
-  
+}

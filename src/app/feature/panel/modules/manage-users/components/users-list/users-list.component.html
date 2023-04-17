@@ -1,14 +1,13 @@
 <div class="container-fluid">
   <div class="d-flex mb-2">
-    <h2>User List</h2>
-    
-    <button class="btn btn-primary ml-auto" routerLink="addUser">Add User</button>
+    <h2>{{'home.userList' | translate}}</h2>
+    <button class="btn btn-primary ml-auto" routerLink="addUser">{{'home.addUser' | translate}}</button>
   </div>
 
     <div class="search mb-2 form-inline">
       <!-- <form class="form-inline" > -->
         <input  #searchVA (keyup.enter)="getSearch($event)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button #searchBtn class="btn btn-primary my-2 my-sm-0" type="submit"(click)="getSearch(searchVA, true, searchBtn)">Search</button>
+        <button #searchBtn class="btn btn-primary my-2 my-sm-0" type="submit"(click)="getSearch(searchVA, true, searchBtn)">{{'home.search' | translate}}</button>
       <!-- </form> -->
     </div>
 

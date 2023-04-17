@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
@@ -13,12 +14,11 @@ export class UsersListComponent implements OnInit {
 
   userList:any=[]
   searchText = '';
+  isGerman: boolean = false;
   // reverse:boolean = false
   // sortBy:string='firstName';
   constructor(public user:CommonUserService,private spinner: NgxSpinnerService,private toastr: ToastrService,private route:Router){}
   ngOnInit(): void {
-    console.log("sasf");
-
     this.getList();
   }
 
