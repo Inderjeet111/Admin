@@ -22,6 +22,7 @@
         <th scope="col"[class.active]="sortBy === 'lastName'" (click)="setOrder('lastName')">Last Name<span [hidden]="reverse">▼</span><span
           [hidden]="!reverse">▲</span></th>
         <th scope="col">E-Mail</th>
+        <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -31,6 +32,12 @@
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
+        <!-- <td>{{user.status}}</td> -->
+        <td> <label class="switch mb-0" for="{{ i + 'ac' }}">
+          <input  name="{{ i + 'deletedAt' }}" type="checkbox"
+            id="{{ i + 'ac' }}" [checked]="user?.status" (change)="activation(user)">
+          <span class="slider round"></span>
+        </label></td>
         <td>
           <a><i class="fas fa-eye me-2 text-dark"></i></a>
           <a (click)="getUserId(user.id)"><i class="fas fa-edit me-2 text-secondary"></i></a>

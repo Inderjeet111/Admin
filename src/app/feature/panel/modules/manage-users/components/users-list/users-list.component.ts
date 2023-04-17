@@ -61,7 +61,19 @@ export class UsersListComponent implements OnInit {
 //   this.searchText = search ? search.trim() : search;
 //   this.getCustomers();
 // }
-
+activation(user:any){
+   let active= !user.status;
+   console.log(active);
+   
+   let data= {status:active}
+   this.user.updateUser(user.id,data).subscribe(res=>{
+    console.log(res,'resss');
+    
+   })
+  //  status= !status;
+   console.log(status);
+   
+}
  deleteUser(id:number){
   this.spinner.show()
   this.user.deleteUser(id).subscribe(res=>{
