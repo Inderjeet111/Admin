@@ -8,8 +8,8 @@ export class CommonUserService {
 
   constructor(private http: HttpClient) { }
 
-  getUserList(search:string){
-    return this.http.get<any>(ApiRoutes.usersList+ '?search=' + search);
+  getUserList(search:string,sortBy:string,orderBy:string){
+    return this.http.get<any>(ApiRoutes.usersList+ '?search=' + search + '&order=' + sortBy + '&orderBy=' + orderBy);
   }
   
   addUser(userData:any){

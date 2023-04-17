@@ -11,51 +11,77 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
 })
 export class UsersListComponent implements OnInit {
 
-  userList: any = []
-  constructor(public user: CommonUserService, private spinner: NgxSpinnerService, private toastr: ToastrService, private route: Router) { }
+  userList:any=[]
+  searchText = '';
+  // reverse:boolean = false
+  // sortBy:string='firstName';
+  constructor(public user:CommonUserService,private spinner: NgxSpinnerService,private toastr: ToastrService,private route:Router){}
   ngOnInit(): void {
     console.log("sasf");
 
     this.getList();
   }
 
-  getList(search: string = '') {
+  reverse:boolean = false
+  sortBy:string='firstName';
+  getList(){
     console.log('hiiii');
-    this.user.getUserList(search).subscribe(res => {
-      this.userList = res.users;
-      console.log("getlist", this.userList);
+    const orderBy = this.reverse ? 'DESC' : 'ASC';
+    this.user.getUserList(this.searchText,this.sortBy,orderBy).subscribe(res=>{
+      this.userList=res.users;
+      console.log("getlist",this.userList);
     })
+ }
+ setOrder(value: string): void {
+  if (this.sortBy === value) {
+    this.reverse = !this.reverse;
   }
-  getSearch(search: string, event: Event) {
-    event.preventDefault();
-    console.log(search);
-    this.spinner.show();
-    this.getList(search);
+  this.sortBy = value;
+ 
+  this.getList();
+}
+ getSearch(event: any, cond?: boolean, btn?: HTMLElement): void {
+  let search;
+  if (cond) {
+    // this.clearFocus(event);
+    search = event.value;
+  } else {
+    // this.clearFocus(event.target);
+    search = event.target.value;
+  }
+  this.searchText = search ? search.trim() : search;
+  this.spinner.show();
+  this.getList();
+  setTimeout(() => {
+    this.spinner.hide()
+  }, 500);
+}
+// getSearch(event: any, cond?: boolean, btn?: HTMLElement): void {
+//   let search;
+//   this.searchText = search ? search.trim() : search;
+//   this.getCustomers();
+// }
+
+ deleteUser(id:number){
+  this.spinner.show()
+  this.user.deleteUser(id).subscribe(res=>{
+    this.toastr.error('Successfully!','User Deleted', {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
+    console.log(res);
+    this.getList();
     setTimeout(() => {
       this.spinner.hide()
     }, 500);
-  }
-  deleteUser(id: number) {
-    this.spinner.show()
-    this.user.deleteUser(id).subscribe(res => {
-      this.toastr.error('Successfully!', 'User Deleted', {
-        timeOut: 3000,
-        progressBar: true,
-        progressAnimation: 'decreasing',
-        positionClass: 'toast-top-right'
-      });
-      console.log(res);
-      this.getList();
-      setTimeout(() => {
-        this.spinner.hide()
-      }, 500);
-    })
-  }
-
+  })
+  
+ }
 
   getUserId(id: number) {
     console.log(id, 'user id');
     this.route.navigate(['panel/users/edituser',id])
   }
 }
-
