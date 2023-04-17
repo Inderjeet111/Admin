@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,6 +12,7 @@ import { CommonUserService } from 'src/app/shared/services/common-user.service';
 })
 export class HomeComponent implements OnInit {
 
+  //pie chart
   public pieChartLabels = ['Total Users', 'Total Admins'];
   public pieChartData: any[] = [];
   public pieChartColors = [
@@ -22,6 +27,25 @@ export class HomeComponent implements OnInit {
       ]
     }
   ];
+
+  //line chart
+  public lineChartData: ChartDataSets[] = [
+    { data: [10, 15, 30, 20, 50], label: 'Users' }
+  ];
+  public lineChartLabels: Label[] = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'];
+  public lineChartOptions: ChartOptions = {
+    responsive: true
+  };
+  public lineChartColors = [
+    {
+      borderColor: '#21508a',
+      backgroundColor: '#4e6d93',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType: ChartType = 'line';
+  public lineChartPlugins = [];
+
   constructor(public user: CommonUserService) { }
 
   allUsers: any;
