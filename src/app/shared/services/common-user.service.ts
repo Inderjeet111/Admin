@@ -25,4 +25,12 @@ export class CommonUserService {
   getHomeData(){
     return this.http.get<any>(ApiRoutes.home)
   }
+
+  getUserById(userId:any){
+    return this.http.get<any>(ApiRoutes.userData+'/'+`${userId}`);
+  }
+
+  updateUser(userId:any,data:any){
+    return this.http.put<any>(ApiRoutes.updateUser+'/'+`${userId}`,data)
+  }
 }

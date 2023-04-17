@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="cursor "><a routerLink="/panel/users"><i class="fas fa-arrow-left me-2"></i>back</a>
+    </div>
+<div class="mt-4">
+    <form [formGroup]="form" (submit)="updateUser()">
+        <div class="row">
+            <div class="col-4">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control mb-2" placeholder="" formControlName="firstName">
+            </div>
+            <div class="col-4">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control mb-2" placeholder="" formControlName="lastName">
+            </div>
+            <div class="col-4">
+                <label class="form-label">E-Mail</label>
+                <input type="email" class="form-control mb-2" formControlName="email">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary me-1">Submit</button>
+    </form>
+</div>
+</div>
