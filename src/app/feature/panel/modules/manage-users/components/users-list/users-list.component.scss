@@ -4,3 +4,19 @@
 tbody{
     max-height: 100px;
 }
+thead th {
+    cursor: pointer;
+    margin-right: 15px;
+    margin-left: 15px;
+  
+    span {
+      visibility: hidden;
+    }
+  
+    &.active {
+      span {
+        color: white;
+        visibility: visible;
+      }
+    }
+  }
