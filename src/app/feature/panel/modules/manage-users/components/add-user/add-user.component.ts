@@ -26,7 +26,7 @@ constructor( public fb:FormBuilder, public user:CommonUserService,
 this.form=this.fb.group({
   firstName:['',[Validators.required]],
   lastName:['',[Validators.required]],
-  email:['',[Validators.required]]
+  email:['',[Validators.required]],
 })
 }
 
@@ -45,7 +45,12 @@ ngOnInIt(){
 
 addUser(){
  this.spinner.show()
-  this.user.addUser(this.form.value).subscribe((res:any)=>{
+ let status = true;
+let data = {
+  ...this.form.value,
+  status: status
+}
+  this.user.addUser(data).subscribe((res:any)=>{
     console.log(res);
     setTimeout(() => {
       this.spinner.hide();

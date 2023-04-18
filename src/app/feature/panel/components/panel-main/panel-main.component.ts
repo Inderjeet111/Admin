@@ -22,8 +22,7 @@ export class PanelMainComponent {
   selectedItem: string = 'Item 1';
   
   ngOnInit() {
-    
-    if (localStorage.getItem('selectedLang') === 'de') {
+     if (localStorage.getItem('selectedLang') === 'de') {
       this.isGerman = false;
       this.translate.use('de');
     } else {

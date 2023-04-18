@@ -1,7 +1,12 @@
 export class ApiRoutes {
 
-    public static apiBaseUrl: string = "http://localhost:6400/";
+    public static apiBaseUrl: string = "http://localhost:5400/";
     public static get usersList(): string { return this.apiBaseUrl + 'users'; };
+
+    public static get userData(): string { return this.apiBaseUrl + 'user'; };
+
+    public static get updateUser(): string { return this.apiBaseUrl + 'updateUser'; };
+
 
     public static get insertUser(): string { return this.apiBaseUrl + 'addUser'; }
 

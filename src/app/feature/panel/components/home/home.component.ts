@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -12,6 +13,7 @@ import { Label } from 'ng2-charts';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(public user: CommonUserService,public translate:TranslateService) { }
   //pie chart
   public pieChartLabels = ['Total Users', 'Total Admins'];
   public pieChartData: any[] = [];
@@ -46,7 +48,6 @@ export class HomeComponent implements OnInit {
   public lineChartType: ChartType = 'line';
   public lineChartPlugins = [];
 
-  constructor(public user: CommonUserService) { }
 
   allUsers: any;
   userCount: any;
@@ -54,6 +55,10 @@ export class HomeComponent implements OnInit {
   adminCount: any;
 
   ngOnInit(): void {
+  //   this.translate.get(['home.totalUsers', 'home.totalAdmins']).subscribe(translations => {
+  //   // Update the pieChartLabels array with the translated values
+  //   this.pieChartLabels = [translations['home.totalUsers'], translations['home.totalAdmins']];
+  // });
 
     this.user.getHomeData().subscribe((res: any) => {
       if (res) {
