@@ -1,52 +1,60 @@
 <div class="center-v-h">
     <div class="col-lg-4 p-5 shadow bg-white">
-        <div title="Back" class="cursor"><a routerLink="/login"><i class="fas fa-arrow-left me-2"></i></a>
-        </div>
         <form [formGroup]="signupForm">
-        <h3 class="text-center mb-3">Signup</h3>
+            <h3 class="text-center mb-3">Signup</h3>
 
-        <div class="mb-3">
+            <div class="mb-3">
 
-            <label>Name <span class="compulsory"> *</span></label>
-            <input class="form-control mb-3" formControlName="name"   type="text">
+                <label>Name <span class="compulsory"> *</span></label>
+                <input class="form-control mb-2" formControlName="name" type="text">
+                <div class="text-danger"
+                    *ngIf="signupForm.controls['name'].invalid &&  (signupForm.controls['name']?.dirty || signupForm.controls['name']?.touched)">
+                    <span class="" *ngIf="signupForm.controls['name'].errors?.['required']">Name is required </span>
+                    <span class="" *ngIf="signupForm.controls['name'].errors?.['minlength']">Minimum 2 Characters
+                    </span>
+                    <span class="" *ngIf="signupForm.controls['name'].errors?.['maxlength']">Maximum 12 Characters
+                    </span>
+                </div>
+            </div>
+            <label>E-mail <span class="compulsory"> *</span></label>
+            <input class="form-control mb-2" formControlName="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                type="email">
+
             <div class="text-danger"
-            *ngIf="signupForm.controls['name'].invalid &&  (signupForm.controls['name']?.dirty || signupForm.controls['name']?.touched)">
-            <span class="" *ngIf="signupForm.controls['name'].errors?.['required']">Name is required </span>
-            <span class="" *ngIf="signupForm.controls['name'].errors?.['minlength']">Minimum 2 Characters </span>
-            <span class="" *ngIf="signupForm.controls['name'].errors?.['maxlength']">Maximum 12 Characters </span>
-        </div>
-    </div>
-        <!-- <span class="text-danger" *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
-Name is required
-        </span> -->
-        <label>E-mail</label>
-        <input class="form-control mb-3" formControlName="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email">
+                *ngIf="signupForm.controls['email'].invalid &&  (signupForm.controls['email']?.dirty || signupForm.controls['email']?.touched)">
+                <span class="mb-2" *ngIf="signupForm.controls['email'].errors?.['required']">Email is required </span>
+                <span class="mb-2" *ngIf="signupForm.controls['email'].errors?.['pattern']">Pattern is not valid </span>
 
-        <div class="text-danger"
-            *ngIf="signupForm.controls['email'].invalid &&  (signupForm.controls['email']?.dirty || signupForm.controls['email']?.touched)">
-            <span class="" *ngIf="signupForm.controls['email'].errors?.['required']">Email is required </span>
-            <span class="" *ngIf="signupForm.controls['email'].errors?.['pattern']">Pattren  is not valid </span>
+            </div>
+            <label>Password <span class="compulsory"> *</span></label>
+            <input class="form-control mb-2" formControlName="password" name="password" id="password"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&_<>.,:;'+-~#%^)()])(?=.*[a-zA-Z]).{8,}$"
+                type="password">
+            <div class="text-danger"
+                *ngIf="signupForm.controls['password'].invalid &&  (signupForm.controls['password']?.dirty || signupForm.controls['password']?.touched)">
+                <span class="mb-2" *ngIf="signupForm.controls['password'].errors?.['required']">Password is required
+                </span>
+                <span class="mb-2"
+                    *ngIf="signupForm.controls['password'].errors?.['pattern'] && !signupForm.controls['password'].errors?.['maxlength'] && !signupForm.controls['password'].errors?.['minlength']">Password
+                    is not valid </span>
+                <span class="mb-2" *ngIf="signupForm.controls['password'].errors?.['minlength']">Minimum 8 Characters
+                </span>
+                <span class="mb-2" *ngIf="signupForm.controls['password'].errors?.['maxlength']">Maximum 15
+                    Characters</span>
+            </div>
+            <label> Confirm Password <span class="compulsory"> *</span></label>
+            <input class="form-control mb-2" formControlName="confirmPassword" type="password">
+            <div class="text-danger"
+                *ngIf="signupForm.controls['confirmPassword'].invalid &&  (signupForm.controls['confirmPassword']?.dirty || signupForm.controls['confirmPassword']?.touched)">
+                <span class="mb-2" *ngIf="signupForm.controls['confirmPassword'].errors?.['required']">Confirm Passowrd
+                    is
+                    required </span>
 
-        </div>
-        <label>Password</label> 
-        <input class="form-control mb-3" formControlName="password" name="password" id="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&_<>.,:;'+-~#%^)()])(?=.*[a-zA-Z]).{8,}$" type="password">
-        <div class="text-danger"
-            *ngIf="signupForm.controls['password'].invalid &&  (signupForm.controls['password']?.dirty || signupForm.controls['password']?.touched)">
-            <span class="" *ngIf="signupForm.controls['password'].errors?.['required']">Password is required </span>
-            <span class="" *ngIf="signupForm.controls['password'].errors?.['pattern'] && !signupForm.controls['password'].errors?.['maxlength'] && !signupForm.controls['password'].errors?.['minlength']" >Password is not valid   </span>
-            <span class="" *ngIf="signupForm.controls['password'].errors?.['minlength']">Minimum 8 Characters </span>
-            <span class="" *ngIf="signupForm.controls['password'].errors?.['maxlength']">Maximum 15 Characters</span>
-        </div>
-        <label> Confirm Password</label>
-        <input class="form-control mb-3" formControlName="confirmPassword" type="password">
-        <div class="text-danger"
-            *ngIf="signupForm.controls['confirmPassword'].invalid &&  (signupForm.controls['confirmPassword']?.dirty || signupForm.controls['confirmPassword']?.touched)">
-            <span class="" *ngIf="signupForm.controls['confirmPassword'].errors?.['required']">Confirm Passowrd  is required </span>
 
-            
-        </div>
-        <!-- <div class="float-end my-3 fs-6">Forgot Passsword</div> -->
-        <button class="btn btn-primary mb-2 w-100" (click)="submit()">Signup</button>
-    </form>
+            </div>
+            <div class="my-3 fs-6 float-end">Already have an account <a routerLink="/login">Login</a></div>
+            <!-- <div class="float-end my-3 fs-6">Forgot Passsword</div> -->
+            <button [disabled]="!signupForm.valid" class="btn btn-primary mb-2 w-100" (click)="submit()">Signup</button>
+        </form>
     </div>
-    </div>
+</div>
