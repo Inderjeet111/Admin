@@ -1,13 +1,18 @@
 {
   "home": {
     "admin": "Verwaltung",
-    "home":"Startseite",
-    "users":"Benutzer",
+    "dashboard":"Dashboard",
+    "manageUsers":"Benutzer verwalten",
     "logout":"Abmeldung",
     "totalAdmins":"Admins gesamt",
     "totalUsers":"Benutzer insgesamt",
     "addUser":"Benutzer hinzufügen",
     "search":"Suche",
-    "userList":"Benutzerliste"
+    "userList":"Benutzerliste",
+    "firstName":"Vorname",
+    "lastName":"Nachname",
+    "email":"E-Mail",
+    "status":"Status",
+    "action":"Aktion"
   }
 }

@@ -63,15 +63,21 @@ export class UsersListComponent implements OnInit {
 // }
 activation(user:any){
    let active= !user.status;
-   console.log(active);
-   
    let data= {status:active}
    this.user.updateUser(user.id,data).subscribe(res=>{
+    this.spinner.show();
+    this.toastr.success('Successfully!',(active ? "User Activated" : "User Deactivated"), {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
     console.log(res,'resss');
-    
+    this.getList();
    })
-  //  status= !status;
-   console.log(status);
+   setTimeout(() => {
+    this.spinner.hide()
+  }, 500);
    
 }
  deleteUser(id:number){
