@@ -34,15 +34,6 @@ export class LoginComponent implements OnInit{
         });
         this.router.navigate(['/panel'])
         localStorage.setItem('token','true')
-      }else{
-        if(res){
-          this.toastr.error(res.message,'',{
-            timeOut: 3000,
-            progressBar: true,
-            progressAnimation: 'decreasing',
-            positionClass: 'toast-top-right'
-          });
-        }
       }
     },
     (err)=>{
