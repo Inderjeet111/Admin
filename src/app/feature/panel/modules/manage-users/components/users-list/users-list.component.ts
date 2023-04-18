@@ -73,9 +73,10 @@ activation(user:any){
       positionClass: 'toast-top-right'
     });
     console.log(res,'resss');
-    this.getList();
+    
    })
    setTimeout(() => {
+    this.getList();
     this.spinner.hide()
   }, 500);
    
