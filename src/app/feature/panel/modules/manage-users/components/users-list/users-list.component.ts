@@ -68,7 +68,7 @@ activation(user:any){
    let data= {status:active}
    this.user.updateUser(user.id,data).subscribe(res=>{
     console.log(res,'resss');
-    
+    this.getList();
    })
   //  status= !status;
    console.log(status);

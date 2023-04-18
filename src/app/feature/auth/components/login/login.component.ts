@@ -45,17 +45,24 @@ export class LoginComponent implements OnInit{
         
         localStorage.setItem('token','true')
 
-      }else{
-        if(res){
-          console.log(res.body.message,'dasdsa');
-          this.toastr.error(res.body.message,'',{
-            timeOut: 3000,
-            progressBar: true,
-            progressAnimation: 'decreasing',
-            positionClass: 'toast-top-right'
-          });
-        }
       }
+      // else{
+      //   // 
+      // }
+    },
+    (err)=>{
+        console.log(err);
+        console.log(err.status,'status milgya bhaiya');
+        if(err.status===401){
+              this.toastr.error(err.error.message,'',{
+                timeOut: 3000,
+                progressBar: true,
+                progressAnimation: 'decreasing',
+                positionClass: 'toast-top-right'
+              });
+            }
+        
     })
+    
   }
 }
