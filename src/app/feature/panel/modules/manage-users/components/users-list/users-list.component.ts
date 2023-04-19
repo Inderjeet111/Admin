@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommonUserService } from 'src/app/shared/services/common-user.service';
@@ -13,12 +14,11 @@ export class UsersListComponent implements OnInit {
 
   userList:any=[]
   searchText = '';
+  isGerman: boolean = false;
   // reverse:boolean = false
   // sortBy:string='firstName';
   constructor(public user:CommonUserService,private spinner: NgxSpinnerService,private toastr: ToastrService,private route:Router){}
   ngOnInit(): void {
-    console.log("sasf");
-
     this.getList();
   }
 
@@ -63,15 +63,22 @@ export class UsersListComponent implements OnInit {
 // }
 activation(user:any){
    let active= !user.status;
-   console.log(active);
-   
    let data= {status:active}
    this.user.updateUser(user.id,data).subscribe(res=>{
+    this.spinner.show();
+    this.toastr.success('Successfully!',(active ? "User Activated" : "User Deactivated"), {
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      positionClass: 'toast-top-right'
+    });
     console.log(res,'resss');
-    this.getList();
+    
    })
-  //  status= !status;
-   console.log(status);
+   setTimeout(() => {
+    this.getList();
+    this.spinner.hide()
+  }, 500);
    
 }
  deleteUser(id:number){

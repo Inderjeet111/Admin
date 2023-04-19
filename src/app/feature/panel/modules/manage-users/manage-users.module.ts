@@ -7,6 +7,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ManageUsersRoutingModule,ToastrModule.forRoot()
+    ManageUsersRoutingModule,ToastrModule.forRoot(),
+    TranslateModule
 
   ]
 })

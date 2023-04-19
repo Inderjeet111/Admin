@@ -5,15 +5,15 @@
         <form [formGroup]="form">
             <div class="row">
                 <div class="col-4">
-                    <label class="form-label">First Name</label>
+                    <label class="form-label">{{'home.firstName' | translate}}</label>
                     <input type="text" class="form-control mb-2" placeholder="" formControlName="firstName">
                 </div>
                 <div class="col-4">
-                    <label class="form-label">Last Name</label>
+                    <label class="form-label">{{'home.lastName' | translate}}</label>
                     <input type="text" class="form-control mb-2" placeholder="" formControlName="lastName">
                 </div>
                 <div class="col-4">
-                    <label class="form-label">E-Mail</label>
+                    <label class="form-label">{{'home.email' | translate}}</label>
                     <input type="email" class="form-control mb-2" formControlName="email">
                 </div>
             </div>

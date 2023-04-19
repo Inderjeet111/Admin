@@ -1,6 +1,19 @@
 {
-    "home": {
-      "title": "Welcome to my app!"
-    }
+  "home": {
+    "admin": "Admin",
+    "dashboard":"Dashboard",
+    "manageUsers":"Manage Users",
+    "logout":"Logout",
+    "totalAdmins":"Total Admins",
+    "totalUsers":"Total Users",
+    "addUser":"Add User",
+    "search":"Search",
+    "userList":"User List",
+    "firstName":"First Name",
+    "lastName":"Last Name",
+    "email":"E-Mail",
+    "status":"Status",
+    "action":"Action"
+
   }
-  
+}
