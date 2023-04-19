@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AuthServiceService } from '../../auth-service/auth-service.service';
+import { AuthServiceService } from '../../../auth-service/auth-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { config } from 'rxjs';
 

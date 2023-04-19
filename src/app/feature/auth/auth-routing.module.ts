@@ -1,9 +1,10 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { LoginComponent } from './components/admin/login/login.component';
+import { SignupComponent } from './components/admin/signup/signup.component';
+import { ResetpasswordComponent } from './components/admin/resetpassword/resetpassword.component';
+import { ForgotpasswordComponent } from './components/admin/forgotpassword/forgotpassword.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
 
 const routes: Routes = [
   {
@@ -21,9 +22,13 @@ const routes: Routes = [
   },
   {path:'forgotpassword',
 component:ForgotpasswordComponent},
+{
+  path:'user-login',
+  component:UserLoginComponent
+},
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "user-login",
     pathMatch: "full"
   }
 ];

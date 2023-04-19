@@ -15,8 +15,8 @@ import { RouterModule,ROUTES } from '@angular/router';
 import { HomeComponent } from './feature/panel/components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { LoginComponent } from './feature/auth/components/login/login.component';
-import { AuthAdminGuard } from './feature/auth/auth-admin.guard';
+import { LoginComponent } from './feature/auth/components/admin/login/login.component';
+import { AuthAdminGuard } from './feature/auth/components/admin/auth-admin.guard';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json" );
